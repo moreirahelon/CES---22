@@ -1,6 +1,8 @@
 package Calculadora;
 
+
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,10 +11,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 
 public class JanelaPrincipal extends JFrame {
 
@@ -117,7 +121,13 @@ public class JanelaPrincipal extends JFrame {
 				int x, y;
 				x = Integer.parseInt(num1.getText());
 				y = Integer.parseInt(num2.getText());
-				ans.setText((x/y)+"");
+				if(y==0){
+					ans.setText(0+"");
+					JOptionPane.showMessageDialog(null, "Operação inválida! Tente outra vez");
+				}
+				else{
+					ans.setText((x/y)+"");
+				}
 			}
 		});
 		did.setBounds(306, 109, 89, 23);
